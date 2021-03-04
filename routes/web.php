@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +21,11 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::prefix('home')->group(function () {
-    Route::get('/', 'HomeController@get')->name('home');
-    Route::put('/update', 'HomeController@update')->name('home/update');
-    Route::delete('/delete', 'HomeController@delete')->name('home/delete');
+Route::prefix('account')->middleware('auth')->name('account')->group(function () {
+    Route::get('/', 'HomeController@get');
+    Route::put('/update', 'HomeController@update')->name('/update');
+    Route::delete('/delete', 'HomeController@delete')->name('/delete');
+
+    
+    Route::get('/profile/{id}', 'Account\ProfileController@get');
 });

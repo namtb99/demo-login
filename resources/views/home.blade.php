@@ -26,19 +26,19 @@
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
-                            <tr>
+                            <tr style="cursor: pointer;" onclick="window.location.href = '/account/profile/{{$user->id}}'">
                                 <td>{{ $user->id }}</td>
                                 <!-- <td>{{ $user->name }}</td> -->
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                    {!! Form::open(['route' => ['home/update'], 'method' => 'put', 'class' => 'form-inline']) !!}
+                                    {!! Form::open(['route' => ['account/update'], 'method' => 'put', 'class' => 'form-inline']) !!}
                                     {!! Form::hidden('id', $user->id) !!}
                                     {!! Form::text('name', $user->name,['class' => 'mr-1']) !!}
                                     {!! Form::submit('Update', ['class' => 'btn btn-warning btn-xs']) !!}
                                     {!! Form::close() !!}
                                 </td>
                                 <td>
-                                    {!! Form::open(['route' => ['home/delete'], 'method' => 'delete', 'class' => 'form-inline']) !!}
+                                    {!! Form::open(['route' => ['account/delete'], 'method' => 'delete', 'class' => 'form-inline']) !!}
                                     {!! Form::hidden('id', $user->id) !!}
                                     {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
                                     {!! Form::close() !!}

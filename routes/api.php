@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::prefix('account/profile')->name('profile')->group(function () {
+    // Route::get('/', 'HomeController@get');
+    Route::put('/update', 'Account\ProfileController@update')->name('/update');
+    // Route::delete('/delete', 'HomeController@delete')->name('/delete');
 });
