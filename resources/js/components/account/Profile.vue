@@ -174,10 +174,6 @@
         <!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
       </div>
 
-      <!-- Pin to top right corner -->
-      <div class="absolute top-0 right-0 h-12 w-18 p-4">
-        <button class="js-change-theme focus:outline-none">🌙</button>
-      </div>
     </div>
   </div>
 </template>
@@ -222,7 +218,7 @@ export default {
     //   console.log(this.address);
     //   console.log(Vue.$axios);
     this.updateText = 'Đang cập nhật ...';
-      Vue.$axios.put("/api/account/profile/update", {
+      window.axios.put("/api/account/profile/update", {
         id: this.id,
         gender: this.gender,
         address: this.address,

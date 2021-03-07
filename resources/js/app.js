@@ -35,6 +35,4 @@ const app = new Vue({
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 
-import Axios from 'axios'
 
-Vue.$axios = Axios;
